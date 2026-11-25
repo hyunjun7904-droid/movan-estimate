@@ -609,15 +609,15 @@ window.DEFAULT_CONFIG = {
           "options": [
             {
               "name": "한샘 베이직 붙박이장 (B2 도어)",
-              "price": 122000
+              "price": 97600
             },
             {
               "name": "한샘 베이직 붙박이장 + 파우더장(서랍형)",
-              "price": 151000
+              "price": 120800
             },
             {
               "name": "한샘 반침 다용도장 (화이트 PP)",
-              "price": 122000
+              "price": 97600
             }
           ],
           "modes": [
@@ -638,8 +638,8 @@ window.DEFAULT_CONFIG = {
           ],
           "options": [
             {
-              "name": "한샘 현관장 (행잉) + 중앙장식장",
-              "price": 136000
+              "name": "한샘 현관장 (행잉) 기본형",
+              "price": 96000
             }
           ],
           "defaultOpt": 0
