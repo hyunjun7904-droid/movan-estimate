@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>간편 견적내기</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- 웹앱(홈 화면에 추가) 설정 -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2f5d50">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="간편견적">
+</head>
+<body data-mode="single" data-intro="1">
+  <header class="top">
+    <div class="wrap top-inner">
+      <div>
+        <div class="brand" id="brandName"></div>
+        <div class="brand-sub" id="brandContact"></div>
+      </div>
+      <div class="top-title">간편 견적내기</div>
+    </div>
+  </header>
+
+  <section class="wrap mode-select intro" id="modeSelect">
+    <h1>간편 견적내기</h1>
+    <p class="mode-sub">평수를 입력하고 원하는 공사만 고르면<br>예상 금액을 바로 확인할 수 있어요.</p>
+    <div class="intro-note">
+      <div class="intro-note-title">견적 전에 꼭 확인해 주세요</div>
+      <ul>
+        <li>이 금액은 평수와 일반적인 시공 기준으로 자동 계산한 <b>예상 금액</b>이에요. 정확한 견적이 아니에요.</li>
+        <li>기존 마감재 상태, 구조, 실측 치수, 선택하시는 자재에 따라 <b>실제 견적은 달라질 수 있어요.</b></li>
+        <li>정확한 금액은 현장 방문 상담 후 안내해 드려요.</li>
+      </ul>
+    </div>
+    <button type="button" class="btn primary intro-start" data-mode="single">간편 견적 시작하기 →</button>
+  </section>
+
+  <main class="wrap layout" id="app" hidden>
+    <section class="main-col">
+      <div class="mode-bar">
+        <div class="mode-toggle" role="tablist">
+          <button type="button" data-mode="full">전체 시공</button>
+          <button type="button" data-mode="single">단품 시공</button>
+        </div>
+        <button type="button" class="btn ghost small" id="btnHome">← 처음으로</button>
+      </div>
+
+      <div class="card">
+        <h2><span class="step">1</span>평수 입력 <small id="pyeongHint"></small></h2>
+        <div class="pyeong-row">
+          <label class="pyeong-input">
+            공급평수
+            <input type="number" id="pyeong" min="10" max="100" step="1" value="32">
+            <span>평</span>
+          </label>
+          <input type="range" id="pyeongRange" min="10" max="80" step="1" value="32">
+        </div>
+        <div class="area-info" id="areaInfo"></div>
+
+        <h3>자동 추정 수량 <small>실제 집과 다르면 숫자를 고쳐주세요</small></h3>
+        <div class="qty-grid" id="qtyGrid"></div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step">2</span><span id="scopeTitle">공사 범위 선택</span></h2>
+        <p class="hint" id="scopeHint"></p>
+        <div class="quick">
+          <button type="button" class="btn ghost" data-preset="recommend" data-only="full">기본 추천</button>
+          <button type="button" class="btn ghost" data-preset="all" data-only="full">전체 선택</button>
+          <button type="button" class="btn ghost" data-preset="none">전체 해제</button>
+        </div>
+        <div id="scope"></div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step">3</span>견적서</h2>
+        <div class="cust-row">
+          <label>아파트명 <input type="text" id="custSite" placeholder="예: 토월성원 아파트"></label>
+        </div>
+        <div id="estimate"></div>
+      </div>
+    </section>
+
+    <aside class="summary-col">
+      <div class="card summary" id="summary"></div>
+    </aside>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>

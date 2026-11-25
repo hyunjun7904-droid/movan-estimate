@@ -1,0 +1,16 @@
+{
+  "name": "모반 인테리어 간편 견적내기",
+  "short_name": "간편견적",
+  "description": "평수와 원하는 공사를 고르면 예상 인테리어 금액을 바로 확인해요.",
+  "lang": "ko",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f5f7",
+  "theme_color": "#2f5d50",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
